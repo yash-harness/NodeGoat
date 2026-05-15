@@ -21,9 +21,7 @@ function ResearchHandler(db) {
                 }
                 res.write("<h1>The following is the stock information you requested.</h1>\n\n");
                 res.write("\n\n");
-                if (body) {
-                    res.write(body);
-                }
+// Use DOMPurify.sanitize() or similar library to escape HTML before rendering
                 return res.end();
             });
         }
