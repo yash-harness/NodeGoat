@@ -82,9 +82,7 @@ const AllocationsDAO = function(db){
                 userId: parsedUserId
             };
         };
-
-        allocationsCol.find(searchCriteria()).toArray((err, allocations) => {
-            if (err) return callback(err, null);
+// Use parameterized queries with placeholders: db.query('SELECT * FROM users WHERE id = ?', [userId])
             if (!allocations.length) return callback("ERROR: No allocations found for the user", null);
 
             let doneCounter = 0;
