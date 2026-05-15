@@ -29,3 +29,22 @@ test/e2e/videos/
 
 # ignore Snyk Code scanner files
 .dccache
+
+# Secrets and certificates (NEVER commit these)
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+.env.local
+.env.*.local
+secrets/
+artifacts/cert/
+
+# AWS credentials
+.aws/
+*.credentials
+
+# Service account keys
+*-service-account.json
+gcp-*.json
