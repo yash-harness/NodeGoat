@@ -113,9 +113,13 @@ function SessionHandler(db) {
             // by wrapping the below code as a function callback for the method req.session.regenerate()
             // i.e:
             // `req.session.regenerate(() => {})`
-            req.session.userId = user._id;
-            return res.redirect(user.isAdmin ? "/benefits" : "/dashboard");
-        });
+// Validate redirect URL against allowlist
+        const allowedDomains = ['example.com', 'trusted-site.com'];
+        const url = new URL(redirectUrl, window.location.origin);
+        if (!allowedDomains.includes(url.hostname)) {
+            throw new Error('Invalid redirect URL');
+        }
+        res.redirect(url.toString());
     };
 
     this.displayLogoutPage = (req, res) => {
