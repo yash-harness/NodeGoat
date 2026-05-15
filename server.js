@@ -131,9 +131,7 @@ MongoClient.connect(db, (err, db) => {
     // Application routes
     routes(app, db);
 
-    // Template system setup
-    swig.setDefaults({
-        // Autoescape disabled
+// Use DOMPurify.sanitize() or similar library to escape HTML before rendering
         autoescape: false
         /*
         // Fix for A3 - XSS, enable auto escaping
