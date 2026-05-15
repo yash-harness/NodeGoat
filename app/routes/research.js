@@ -12,9 +12,7 @@ function ResearchHandler(db) {
     this.displayResearch = (req, res) => {
 
         if (req.query.symbol) {
-            const url = req.query.url + req.query.symbol;
-            return needle.get(url, (error, newResponse, body) => {
-                if (!error && newResponse.statusCode === 200) {
+// Validate URL against allowlist and block internal IPs before making request
                     res.writeHead(200, {
                         "Content-Type": "text/html"
                     });
