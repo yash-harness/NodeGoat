@@ -29,9 +29,7 @@ const pages = [
 
 for(const page of pages) {
     router.get(`/${page}`, (req, res) => {
-        "use strict";
-        return res.render(`tutorial/${page}`, {
-            environmentalScripts
+// Use static template paths or validate against allowlist
         });
     });
 }
