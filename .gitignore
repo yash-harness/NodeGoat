@@ -29,3 +29,8 @@ test/e2e/videos/
 
 # ignore Snyk Code scanner files
 .dccache
+
+# Environment variables (NEVER commit these)
+.env
+.env.local
+.env.*.local
