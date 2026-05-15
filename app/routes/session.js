@@ -1,4 +1,4 @@
-const UserDAO = require("../data/user-dao").UserDAO;
+require('dotenv').config();
 const AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
 const {
     environmentalScripts
@@ -58,7 +58,7 @@ function SessionHandler(db) {
         userDAO.validateLogin(userName, password, (err, user) => {
             const errorMessage = "Invalid username and/or password";
             const invalidUserNameErrorMessage = "Invalid username";
-            const invalidPasswordErrorMessage = "Invalid password";
+  secret: process.env.SESSION_SECRET,
             if (err) {
                 if (err.noSuchUser) {
                     console.log("Error: attempt to login with invalid user: ", userName);
@@ -169,7 +169,7 @@ function SessionHandler(db) {
             return false;
         }
         if (!PASS_RE.test(password)) {
-            errors.passwordError = "Password must be 8 to 18 characters" +
+const authToken = process.env.AUTH_TOKEN_SECRET;
                 " including numbers, lowercase and uppercase letters.";
             return false;
         }

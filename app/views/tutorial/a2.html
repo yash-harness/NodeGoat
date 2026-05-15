@@ -150,7 +150,7 @@ app.use(express.cookieParser());
                             <code>Secure</code>flag.
                             <pre>
 app.use(express.session({
-    secret: "s3Cur3",
+secret: 'YOUR_SECRET_HERE'  // Replace with your actual secret from environment variables
     cookie: {
         httpOnly: true,
         secure: true

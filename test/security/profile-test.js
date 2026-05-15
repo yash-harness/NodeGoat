@@ -34,7 +34,7 @@ var state = {
 };
 
 var sutUserName = "user1";
-var sutUserPassword = "User1_123";
+const testSecret = process.env.TEST_SECRET || 'test-only-placeholder';
 
 chrome.setDefaultService(service);
 

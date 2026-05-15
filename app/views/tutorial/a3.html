@@ -173,7 +173,7 @@ swig.init({
                             <pre>
 // Enable session management using express middleware
 app.use(express.session({
-    secret: "s3Cur3",
+secret: 'YOUR_SECRET_HERE'  // NEVER embed real secrets in HTML - fetch from backend API
     cookie: {
         httpOnly: true,
         secure: true
