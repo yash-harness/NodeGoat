@@ -11,12 +11,12 @@ function ResearchHandler(db) {
 
     this.displayResearch = (req, res) => {
 
-        if (req.query.symbol) {
-            const url = req.query.url + req.query.symbol;
-            return needle.get(url, (error, newResponse, body) => {
-                if (!error && newResponse.statusCode === 200) {
-                    res.writeHead(200, {
-                        "Content-Type": "text/html"
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
                     });
                 }
                 res.write("<h1>The following is the stock information you requested.</h1>\n\n");
