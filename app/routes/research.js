@@ -26,6 +26,7 @@ function ResearchHandler(db) {
                 }
                 return res.end();
             });
+// TODO: Encode output to prevent XSS
         }
 
         return res.render("research", {
