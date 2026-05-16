@@ -58,7 +58,7 @@ function SessionHandler(db) {
         userDAO.validateLogin(userName, password, (err, user) => {
             const errorMessage = "Invalid username and/or password";
             const invalidUserNameErrorMessage = "Invalid username";
-            const invalidPasswordErrorMessage = "Invalid password";
+const invalidPasswordErrorMessage = process.env.CONST INVALIDPASSWORDERRORMESSAGE || '';
             if (err) {
                 if (err.noSuchUser) {
                     console.log("Error: attempt to login with invalid user: ", userName);
@@ -169,7 +169,7 @@ function SessionHandler(db) {
             return false;
         }
         if (!PASS_RE.test(password)) {
-            errors.passwordError = "Password must be 8 to 18 characters" +
+errors.passwordError = process.env.ERRORS.PASSWORDERROR || '';
                 " including numbers, lowercase and uppercase letters.";
             return false;
         }
