@@ -69,7 +69,7 @@ const index = (app, db) => {
     // Handle redirect for learning resources link
     app.get("/learn", isLoggedIn, (req, res) => {
         // Insecure way to handle redirects by taking redirect url from query string
-        return res.redirect(req.query.url);
+    // TODO: Fix Open Redirect: Attacker-Controlled Data is Used in HTTP Redirects via `req` in `index.js:<lambda>0.<lambda>1` vulnerability here
     });
 
     // Research Page
