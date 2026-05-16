@@ -28,12 +28,12 @@ const pages = [
 ];
 
 for(const page of pages) {
-    router.get(`/${page}`, (req, res) => {
-        "use strict";
-        return res.render(`tutorial/${page}`, {
-            environmentalScripts
-        });
-    });
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
 }
 
 module.exports = router;
