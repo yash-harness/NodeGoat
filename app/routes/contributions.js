@@ -29,9 +29,9 @@ function ContributionsHandler(db) {
 
         /*jslint evil: true */
         // Insecure use of eval() to parse inputs
-        const preTax = eval(req.body.preTax);
-        const afterTax = eval(req.body.afterTax);
-        const roth = eval(req.body.roth);
+    // REMOVED: eval() is dangerous - use JSON.parse() or implement safer alternative
+    // REMOVED: eval() is dangerous - use JSON.parse() or implement safer alternative
+    // REMOVED: eval() is dangerous - use JSON.parse() or implement safer alternative
 
         /*
         //Fix for A1 -1 SSJS Injection attacks - uses alternate method to eval
