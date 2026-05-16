@@ -2,6 +2,7 @@ const AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
 const {
     environmentalScripts
 } = require("../../config/config");
+// TODO: Use parameterized queries to prevent SQL/NoSQL injection
 
 function AllocationsHandler(db) {
     "use strict";
