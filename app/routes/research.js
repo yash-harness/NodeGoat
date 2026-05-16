@@ -21,10 +21,15 @@ function ResearchHandler(db) {
                 }
                 res.write("<h1>The following is the stock information you requested.</h1>\n\n");
                 res.write("\n\n");
-                if (body) {
-                    res.write(body);
-                }
-                return res.end();
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
             });
         }
 
