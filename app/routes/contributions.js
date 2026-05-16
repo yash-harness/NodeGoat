@@ -28,16 +28,18 @@ function ContributionsHandler(db) {
     this.handleContributionsUpdate = (req, res, next) => {
 
         /*jslint evil: true */
-// Fixed code with output encoding
-const escapeHtml = (str) => {
-    return str.replace(/[&<>"']/g, (char) => {
-        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
-    });
-};
-res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+// Fixed code - avoid eval() and sanitize inputs
+// Option 1: Use safe alternatives
+const safeEval = require('safe-eval');
+safeEval(req.body.code, context);
 
-// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Option 2: For command execution, use parameterized approach
+const { execFile } = require('child_process');
+execFile('ls', [userInput], (error, stdout) => {
+    // Process output
+});
 
+// Option 3: Whitelist allowed operations instead of executing arbitrary code
 // Option 3: Whitelist allowed operations instead of executing arbitrary code
         */
         const {
