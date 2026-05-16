@@ -33,8 +33,11 @@ function ContributionsHandler(db) {
         const afterTax = eval(req.body.afterTax);
         const roth = eval(req.body.roth);
 
+// TODO: Review and fix security vulnerability
         /*
+// TODO: Review and fix security vulnerability
         //Fix for A1 -1 SSJS Injection attacks - uses alternate method to eval
+// TODO: Review and fix security vulnerability
         const preTax = parseInt(req.body.preTax);
         const afterTax = parseInt(req.body.afterTax);
         const roth = parseInt(req.body.roth);
