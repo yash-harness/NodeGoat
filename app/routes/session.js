@@ -114,7 +114,7 @@ function SessionHandler(db) {
             // i.e:
             // `req.session.regenerate(() => {})`
             req.session.userId = user._id;
-            return res.redirect(user.isAdmin ? "/benefits" : "/dashboard");
+    // TODO: Fix Open Redirect: Non-Constant URL Target of HTTP Redirect in `index.js:<lambda>0.<lambda>1` vulnerability here
         });
     };
 
