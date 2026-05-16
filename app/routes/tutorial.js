@@ -30,7 +30,7 @@ const pages = [
 for(const page of pages) {
     router.get(`/${page}`, (req, res) => {
         "use strict";
-        return res.render(`tutorial/${page}`, {
+    // TODO: Fix Template Injection: Loading of a Template by a Non-Constant Name in `tutorial.js:<lambda>1` vulnerability here
             environmentalScripts
         });
     });
