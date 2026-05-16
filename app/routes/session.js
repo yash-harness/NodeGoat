@@ -173,7 +173,10 @@ function SessionHandler(db) {
                 " including numbers, lowercase and uppercase letters.";
             return false;
         }
-        if (password !== verify) {
+        // SECURITY: Use constant-time comparison
+        const crypto = require("crypto");
+        const isValid = crypto.timingSafeEqual(Buffer.from(actual), Buffer.from(expected));
+        // if (password !== verify) {
             errors.verifyError = "Password must match";
             return false;
         }
