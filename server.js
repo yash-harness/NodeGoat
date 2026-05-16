@@ -140,12 +140,12 @@ const escapeHtml = (str) => {
 res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
 
 // Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
-        /*
-        // Fix for A3 - XSS, enable auto escaping
-        autoescape: true // default value
-        */
-    });
-
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
     // Insecure HTTP connection
     http.createServer(app).listen(port, () => {
         console.log(`Express http server listening on port ${port}`);
