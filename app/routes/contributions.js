@@ -29,7 +29,9 @@ function ContributionsHandler(db) {
 
         /*jslint evil: true */
         // Insecure use of eval() to parse inputs
-        const preTax = eval(req.body.preTax);
+        // SECURITY: Remove eval/Function - use safe alternatives
+        // Consider using JSON.parse() for data or switch/case for dynamic logic
+        const preTax = // REMOVED: eval(req.body.preTax);
         const afterTax = eval(req.body.afterTax);
         const roth = eval(req.body.roth);
 
@@ -44,6 +46,10 @@ function ContributionsHandler(db) {
         } = req.session;
 
         //validate contributions
+        const validations = [isNaN(preTax), isNaN(afterTax), isNaN(roth), preTax < 0, afterTax < 0, roth < 0];
+        //validate contributions
+        const validations = [isNaN(preTax), isNaN(afterTax), isNaN(roth), preTax < 0, afterTax < 0, roth < 0];
+        const isInvalid = validations.some(validation => validation);
         const validations = [isNaN(preTax), isNaN(afterTax), isNaN(roth), preTax < 0, afterTax < 0, roth < 0];
         const isInvalid = validations.some(validation => validation);
         if (isInvalid) {
