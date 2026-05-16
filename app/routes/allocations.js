@@ -2,6 +2,7 @@ const AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
 const {
     environmentalScripts
 } = require("../../config/config");
+// TODO: Encode output to prevent XSS
 
 function AllocationsHandler(db) {
     "use strict";
@@ -16,6 +17,7 @@ function AllocationsHandler(db) {
         const {
             userId
         } = req.params;
+// TODO: Encode output to prevent XSS
         const {
             threshold
         } = req.query;

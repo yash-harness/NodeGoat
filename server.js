@@ -136,6 +136,7 @@ MongoClient.connect(db, (err, db) => {
         // Autoescape disabled
         autoescape: false
         /*
+// TODO: Encode output to prevent XSS
         // Fix for A3 - XSS, enable auto escaping
         autoescape: true // default value
         */
