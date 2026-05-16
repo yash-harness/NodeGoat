@@ -114,6 +114,8 @@ function SessionHandler(db) {
             // i.e:
             // `req.session.regenerate(() => {})`
             req.session.userId = user._id;
+            // SECURITY: Validate redirect URL
+            if (!redirectUrl.startsWith("/")) redirectUrl = "/";
             return res.redirect(user.isAdmin ? "/benefits" : "/dashboard");
         });
     };
