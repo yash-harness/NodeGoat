@@ -34,6 +34,7 @@ for(const page of pages) {
             environmentalScripts
         });
     });
+// TODO: Review and fix security vulnerability
 }
 
 module.exports = router;
