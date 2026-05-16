@@ -66,12 +66,12 @@ MongoClient.connect(db, (err, db) => {
 
     // Adding/ remove HTTP Headers for security
     app.use(favicon(__dirname + "/app/assets/favicon.ico"));
-
-    // Express middleware to populate "req.body" so we can access POST variables
-    app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({
-        // Mandatory in Express v4
-        extended: false
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
     }));
 
     // Enable session management using express middleware
