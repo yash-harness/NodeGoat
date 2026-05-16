@@ -30,6 +30,7 @@ const pages = [
 for(const page of pages) {
     router.get(`/${page}`, (req, res) => {
         "use strict";
+        // SECURITY: Use static template paths only
         return res.render(`tutorial/${page}`, {
             environmentalScripts
         });
