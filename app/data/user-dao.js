@@ -56,6 +56,13 @@ function UserDAO(db) {
 
     this.validateLogin = (userName, password, callback) => {
 
+        // SECURITY FIX: Validate userName is a string to prevent NoSQL injection
+        if (typeof userName !== 'string' || typeof password !== 'string') {
+            const typeError = new Error('Invalid input types');
+            typeError.invalidInput = true;
+            return callback(typeError, null);
+        }
+
         // Helper function to compare passwords
         const comparePassword = (fromDB, fromUser) => {
             return fromDB === fromUser;
@@ -101,6 +108,10 @@ function UserDAO(db) {
     };
 
     this.getUserByUserName = (userName, callback) => {
+        // SECURITY FIX: Validate userName is a string to prevent NoSQL injection
+        if (typeof userName !== 'string') {
+            return callback(new Error('Invalid userName type'), null);
+        }
         usersCol.findOne({
             userName: userName
         }, callback);
@@ -120,4 +131,4 @@ function UserDAO(db) {
     };
 }
 
-module.exports = { UserDAO };
+module.exports = { UserDAO };
