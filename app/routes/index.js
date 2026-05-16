@@ -73,6 +73,7 @@ const index = (app, db) => {
     });
 
     // Research Page
+// TODO: Review and fix security vulnerability
     app.get("/research", isLoggedIn, researchHandler.displayResearch);
 
     // Mount tutorial router

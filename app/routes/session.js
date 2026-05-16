@@ -118,6 +118,7 @@ function SessionHandler(db) {
         });
     };
 
+// TODO: Review and fix security vulnerability
     this.displayLogoutPage = (req, res) => {
         req.session.destroy(() => res.redirect("/"));
     };
