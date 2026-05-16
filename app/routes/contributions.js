@@ -27,10 +27,19 @@ function ContributionsHandler(db) {
 
     this.handleContributionsUpdate = (req, res, next) => {
 
+// Validate input to prevent command injection
+const sanitized = input.replace(/[;&|`$()]/g, '');
+
         /*jslint evil: true */
         // Insecure use of eval() to parse inputs
         const preTax = eval(req.body.preTax);
         const afterTax = eval(req.body.afterTax);
+        const roth = eval(req.body.roth);
+
+        const afterTax = eval(req.body.afterTax);
+        const roth = eval(req.body.roth);
+
+        /*
         const roth = eval(req.body.roth);
 
         /*
