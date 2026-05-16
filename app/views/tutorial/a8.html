@@ -54,12 +54,12 @@
     			&lt;input type="hidden" name="bankRouting" value="88888888"/&gt;
                                 &lt;input type="submit" value="Win !!!"/&gt;
     		&lt;/form&gt;
-    	&lt;/body&gt;
-    &lt;/html&gt;
-              </pre> Note: A sample app containing form for CSRF attack on NodeGoat app is available <a target="_blank" href="https://github.com/ckarande/nodegoat-csrf-attack">here</a>.
-                        </li>
-                        <li>Next, attacker would need to manage opening the form on logged in victim's browser and attract user to submit it. When user submits this form, it results in victim user's browser sending a malicious request to vulnerable server, causing CSRF attack.
-                        </li>
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
                     </ol>
                 </p>
 
