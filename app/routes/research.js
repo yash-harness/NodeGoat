@@ -17,6 +17,7 @@ function ResearchHandler(db) {
                 if (!error && newResponse.statusCode === 200) {
                     res.writeHead(200, {
                         "Content-Type": "text/html"
+// TODO: Review and fix security vulnerability
                     });
                 }
                 res.write("<h1>The following is the stock information you requested.</h1>\n\n");
