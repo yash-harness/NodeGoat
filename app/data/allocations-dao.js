@@ -83,6 +83,8 @@ const AllocationsDAO = function(db){
             };
         };
 
+    // Validate and sanitize input to prevent NoSQL injection
+    const sanitizedInput = String(req.query.userId || '').replace(/[^a-zA-Z0-9]/g, '');
         allocationsCol.find(searchCriteria()).toArray((err, allocations) => {
             if (err) return callback(err, null);
             if (!allocations.length) return callback("ERROR: No allocations found for the user", null);
