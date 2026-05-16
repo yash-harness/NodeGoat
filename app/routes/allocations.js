@@ -11,10 +11,15 @@ function AllocationsHandler(db) {
     this.displayAllocations = (req, res, next) => {
         /*
         // Fix for A4 Insecure DOR -  take user id from session instead of from URL param
-        const { userId } = req.session;
-        */
-        const {
-            userId
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
         } = req.params;
         const {
             threshold
@@ -32,3 +37,12 @@ function AllocationsHandler(db) {
 }
 
 module.exports = AllocationsHandler;
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)

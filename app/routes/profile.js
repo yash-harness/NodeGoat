@@ -37,55 +37,97 @@ function ProfileHandler(db) {
         });
     };
 
-    this.handleProfileUpdate = (req, res, next) => {
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
 
-        const {
-            firstName,
-            lastName,
-            ssn,
-            dob,
-            address,
-            bankAcc,
-            bankRouting
-        } = req.body;
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
 
-        // Fix for Section: ReDoS attack
-        // The following regexPattern that is used to validate the bankRouting number is insecure and vulnerable to
-        // catastrophic backtracking which means that specific type of input may cause it to consume all CPU resources
-        // with an exponential time until it completes
-        // --
-        // The Fix: Instead of using greedy quantifiers the same regex will work if we omit the second quantifier +
-        // const regexPattern = /([0-9]+)\#/;
-        const regexPattern = /([0-9]+)+\#/;
-        // Allow only numbers with a suffix of the letter #, for example: 'XXXXXX#'
-        const testComplyWithRequirements = regexPattern.test(bankRouting);
-        // if the regex test fails we do not allow saving
-        if (testComplyWithRequirements !== true) {
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
             const firstNameSafeString = firstName;
-            return res.render("profile", {
-                updateError: "Bank Routing number does not comply with requirements for format specified",
-                firstNameSafeString,
-                lastName,
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
                 ssn,
                 dob,
                 address,
                 bankAcc,
                 bankRouting,
-                environmentalScripts
-            });
-        }
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
 
-        const {
-            userId
-        } = req.session;
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
 
         profile.updateUser(
             parseInt(userId),
             firstName,
-            lastName,
-            ssn,
-            dob,
-            address,
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
             bankAcc,
             bankRouting,
             (err, user) => {

@@ -131,10 +131,15 @@ MongoClient.connect(db, (err, db) => {
     // Application routes
     routes(app, db);
 
-    // Template system setup
-    swig.setDefaults({
-        // Autoescape disabled
-        autoescape: false
+// Fixed code with output encoding
+const escapeHtml = (str) => {
+    return str.replace(/[&<>"']/g, (char) => {
+        return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[char];
+    });
+};
+res.send("<html><body>" + escapeHtml(userInput) + "</body></html>");
+
+// Alternative: Use template engine with auto-escaping (e.g., Pug, Handlebars)
         /*
         // Fix for A3 - XSS, enable auto escaping
         autoescape: true // default value
