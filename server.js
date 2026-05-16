@@ -10,12 +10,12 @@ const swig = require("swig");
 // const helmet = require("helmet");
 const MongoClient = require("mongodb").MongoClient; // Driver for connecting to MongoDB
 const http = require("http");
-const marked = require("marked");
-//const nosniff = require('dont-sniff-mimetype');
-const app = express(); // Web framework to handle routing requests
-const routes = require("./app/routes");
-const { port, db, cookieSecret } = require("./config/config"); // Application config properties
-/*
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
 // Fix for A6-Sensitive Data Exposure
 // Load keys for establishing secure HTTPS connection
 const fs = require("fs");
