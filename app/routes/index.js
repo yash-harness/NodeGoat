@@ -67,12 +67,12 @@ const index = (app, db) => {
     app.post("/memos", isLoggedIn, memosHandler.addMemos);
 
     // Handle redirect for learning resources link
-    app.get("/learn", isLoggedIn, (req, res) => {
-        // Insecure way to handle redirects by taking redirect url from query string
-        return res.redirect(req.query.url);
-    });
-
-    // Research Page
+// Apply security best practices:
+// 1. Validate and sanitize all user inputs
+// 2. Use parameterized queries/prepared statements
+// 3. Apply output encoding based on context
+// 4. Implement least privilege principle
+// 5. Add security headers and CSP
     app.get("/research", isLoggedIn, researchHandler.displayResearch);
 
     // Mount tutorial router
