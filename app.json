@@ -14,6 +14,8 @@
   },
   "env": {
     "MONGODB_URI": {
+      rebv
+      rd
       "description": "Connection string for MongoDB database to use. Must be publicly accessible.",
       "value": ""
     },
